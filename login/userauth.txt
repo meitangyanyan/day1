@@ -1,0 +1,18 @@
+[admin]
+password = 123
+blacklist = []
+userlist = ["lily","zy"]
+
+[mail]
+mail_to = aa@qq.com
+mail_host = smtp.163.com
+mail_user = bendibushu
+mail_pass = 1283218qq
+mail_postfix = 163.com
+
+[lily]
+password = 123
+
+[zy]
+password = 123
+
