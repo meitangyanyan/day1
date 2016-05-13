@@ -43,7 +43,7 @@ def mail_check():
         mailto=input("请输入您可以接收邮件的邮箱:")      #输入接收邮件的邮箱
         if mailto == "":                            #输入不能为空
             print("必须设置接收邮件的邮箱!")
-        elif len(mailto) > 7 and re.match("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$", mailto) != None: #正则检查邮件输入格式是否正确
+        elif len(mailto) > 7 and re.match("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$", mailto) != None: #正则检查邮箱输入格式是否正确
             cf.set("mail", "mail_to", mailto)  #正确的话,将邮箱写入配置文件
             cf.write(open("userauth.txt", "w"))
             break           #退出循环
@@ -185,7 +185,7 @@ def user(name):                 #user函数
         else:                                   #输入别的都是输入有误
             print("您输入的有误,请重新输入!")
 
-# if __name__ == "__main__":
-#     mail_check()
-#     login()  #调用login函数开始登录
+if __name__ == "__main__":
+    mail_check()
+    login()  #调用login函数开始登录
 
