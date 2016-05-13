@@ -5,12 +5,14 @@
 from map import province,city,county
 import sys
 
+#得到类似这样的省的字典:{1:"北京"}
 province_new={}
 def province_func():
     for i in province:
         province_new[int(i)]=province[i]
     return province_new
 
+#得到类似这样的市的字典:{1:"朝阳区"}
 city_new={}
 def city_func(i):
     for j in city:
@@ -18,6 +20,7 @@ def city_func(i):
             city_new[int(j.split('-')[1])]=city[j]
     return city_new
 
+#得到类似这样的县的字典:{1:"和顺县"}
 county_new={}
 def county_func(i,j):
     city_func(i)
@@ -26,7 +29,7 @@ def county_func(i,j):
             county_new[int(k.split('-')[2])]=county[k]
     return county_new
 
-
+#显示函数
 def show_func(m,num=0,name="a",level="a"):
     if m == "a":
         print("#"*80)
@@ -43,6 +46,7 @@ def show_func(m,num=0,name="a",level="a"):
         print("\033[33;7m欢迎您的下次光临!\033[0m".center(85))
         print("#" * 80)
 
+#打印一级菜单的函数
 def menu1_func():
     print("-" * 33 + "\033[35;1m第 一 级 菜 单\033[0m" + "-" * 33)
     print("\033[32;1m***中国的省有:\033[0m")
@@ -50,6 +54,7 @@ def menu1_func():
     for x in pro:
         show_func("d", x, "省", pro[x])
 
+#打印二级菜单的函数
 def menu2_func(pro_num):
     print("-" * 33 + "\033[35;1m第 二 级 菜 单\033[0m" + "-" * 33)
     pro=province_func()
@@ -64,6 +69,7 @@ def menu2_func(pro_num):
     else:
         return True
 
+#打印三级菜单的函数
 def menu3_func(pro_num,city_num):
     print("-" * 33 + "\033[35;1m第 三 级 菜 单\033[0m" + "-" * 33)
     city1 = city_func(pro_num)
@@ -78,6 +84,7 @@ def menu3_func(pro_num,city_num):
     else:
         return True
 
+#操作函数
 def opera_func():
     show_func("a")
     while True:
