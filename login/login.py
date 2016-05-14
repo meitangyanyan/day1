@@ -104,7 +104,7 @@ def login():                                #登录函数
                     sys.exit("管理员已被锁定,强制退出系统!")
         elif name in userlist:        #如果是普通用户登录,判断用户是不是在用户列表里,如果在
             if name in blacklist:     #判断用户是不是在黑名单列表里,如果在,说明用户之前输入密码错误3次已经被锁定啦
-                st=input("%s 用户已被锁定!请问是否联系管理员找回密码? y/n" % name)  #是否联系管理员解锁
+                st=input("%s 用户已被锁定!请问是否给管理员发解锁邮件解锁? y/n" % name)  #是否联系管理员解锁
                 if st.lower() == "y":   #选是
                     send_mail("解锁邮件","用户%s申请解锁!" % name)  #给管理员发送邮件
                 else:                   #选否

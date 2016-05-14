@@ -1,5 +1,5 @@
 [admin]
-password = 123
+password = 321
 blacklist = []
 userlist = ["lily","zy"]
 
