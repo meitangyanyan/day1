@@ -1,0 +1,41 @@
+[admin]
+password = 321
+blacklist = []
+userlist = ["lily","zy"]
+
+[mail]
+mail_to = aa@qq.com
+mail_host = smtp.163.com
+mail_user = bendibushu
+mail_pass = 1283218qq
+mail_postfix = 163.com
+
+[lily]
+password = 123
+salary = 11840
+cart = []
+order = [('女裤', 2, '2016-05-19 16:21:31')]
+
+[zy]
+password = 123
+salary = 10000
+cart = []
+order = [('女牛仔裤', 5, '2016-05-19 15:40:08'), ('女裤', 3, '2016-05-19 15:40:08')]
+
+[库存]
+连衣裙 = 7
+女裤 = 4
+女牛仔裤 = 3
+女t恤 = 3
+女鞋 = 6
+男裤 = 10
+男牛仔裤 = 12
+男t恤 = 7
+男鞋 = 10
+华为手机 = 8
+iphone = 4
+小米手机 = 6
+联想电脑 = 10
+华硕电脑 = 5
+mac = 2
+
