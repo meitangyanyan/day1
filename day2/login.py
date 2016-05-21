@@ -45,7 +45,7 @@ def mail_check():
             print("必须设置接收邮件的邮箱!")
         elif len(mailto) > 7 and re.match("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$", mailto) != None: #正则检查邮箱输入格式是否正确
             cf.set("mail", "mail_to", mailto)  #正确的话,将邮箱写入配置文件
-            cf.write(open("userauth.txt", "w"))
+            cf.write(open(db, "w"))
             break           #退出循环
         else:               #不正确重新输入
             print("您输入的邮箱格式有误!请重新输入!")
@@ -121,7 +121,7 @@ def login():                                #登录函数
                             time.sleep(1)
                         blacklist.remove(name)                  #用户从黑名单里移除,解锁
                         cf.set("admin", "blacklist", str(blacklist))    #将修改后的黑名单写入配置文件
-                        cf.write(open("userauth.txt", "w"))
+                        cf.write(open(db, "w"))
                         continue                                #继续循环
             else:                                               #如果用户不在黑名单里
                 if passwd == cf.get(name,"password"):           #从配置文件获取用户的密码,如果输入密码与文件中的密码匹配
@@ -135,7 +135,7 @@ def login():                                #登录函数
                         print("您已三次输入密码不正确!%s 用户已被锁定!" % name)           #则输出三次登录失败信息
                         blacklist.append(name)                  #加入黑名单
                         cf.set("admin","blacklist",str(blacklist))
-                        cf.write(open("userauth.txt","w"))
+                        cf.write(open(db,"w"))
                     else:                                       #如果用户允许登录次数不为0
                         print("您输入的密码不正确!您还有%d次机会!请重新输入!" % locked[name]) #提示密码输入失败,重新输入
                         continue
@@ -164,7 +164,7 @@ def user(name):                 #user函数
                     pass_new2=input("请再次输入您的新密码:") #确认新密码
                     if pass_new == pass_new2:           #如果两次输入新密码一致
                         cf.set(name,"password",pass_new)    #将新密码更新进配置文件
-                        cf.write(open("userauth.txt", "w"))
+                        cf.write(open(db, "w"))
                         print("恭喜您修改密码成功!Y(^_^)Y")
                         break
                     else:                           #如果两次新密码输入不一致
@@ -182,7 +182,7 @@ def user(name):                 #user函数
                 if username in blacklist:               #如果要解锁的用户在黑名单里
                     blacklist.remove(username)          #解锁
                     cf.set("admin","blacklist",str(blacklist))
-                    cf.write(open("userauth.txt","w"))
+                    cf.write(open(db,"w"))
                     print("用户%s解锁成功!" % username)
                 else:                                   #否则提示输入有误
                     print("您的输入有误!您输入的用户%s不在黑名单里!" % username)
